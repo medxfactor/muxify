@@ -1,10 +1,10 @@
 {
   "name": "@medxfactor/dev-mux",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CI/CD Development Environment Multiplexer",
   "main": "index.js",
   "bin": {
-    "dev-mux": "./index.js"
+    "dev-mux": "bin/dev-mux"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
