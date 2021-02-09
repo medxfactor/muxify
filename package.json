@@ -11,7 +11,8 @@
   },
   "files": [
     "index.js",
-    "server.js"
+    "gateway-server.js",
+    "operation-server.js"
   ],
   "keywords": [
     "ci",
@@ -33,6 +34,7 @@
   },
   "homepage": "https://github.com/medxfactor/dev-mux#readme",
   "dependencies": {
+    "find-my-way": "^4.0.0",
     "http-proxy": "^1.18.1",
     "http-proxy-rules": "^1.1.3",
     "meow": "^9.0.0"

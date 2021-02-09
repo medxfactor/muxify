@@ -1,5 +1,7 @@
-const { createServer } = require('./server');
+const { GatewayServer } = require('./gateway-server');
+const { OperationServer } = require('./operation-server');
 
 module.exports = {
-  createServer,
+  GatewayServer,
+  OperationServer,
 };
