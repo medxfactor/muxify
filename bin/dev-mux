@@ -1,0 +1,56 @@
+#!/usr/bin/env node
+const meow = require('meow');
+const { createServer } = require('../server.js');
+const pkg = require('../package.json');
+
+const cli = meow(`
+  Usage:
+    dev-mux [options]
+
+  Options:
+    --port          Preferred port. [default: 3000]
+    --host          Preferred host. [default: '127.0.0.1']
+    --help, -h      Shows this help message and exists
+    --version, -v   Shows dev-mux version (${pkg.version}) and exists
+`, {
+  flags: {
+    port: {
+      type: 'number',
+      default: 3000,
+      isRequired: false,
+      isMultiple: false,
+    },
+    host: {
+      type: 'string',
+      default: '127.0.0.1',
+      isRequired: false,
+      isMultiple: false,
+    },
+    help: {
+      type: 'boolean',
+      alias: 'h',
+      isRequired: false,
+      isMultiple: false,
+    },
+    version: {
+      type: 'boolean',
+      alias: 'v',
+      isRequired: false,
+      isMultiple: false,
+    },
+  },
+  allowUnknownFlags: false,
+  autoHelp: true,
+  booleanDefault: false,
+  hardRejection: true,
+  autoVersion: true,
+  pkg,
+});
+
+createServer(
+  cli.flags['host'],
+  cli.flags['port'],
+  () => {
+    console.info(`dev-mux is listening at http://${cli.flags['host']}:${cli.flags['port']}`);
+  },
+);
