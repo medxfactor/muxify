@@ -1,0 +1,42 @@
+name: Publish
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  publish_npm:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.release.target_commitish }}
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '15'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install Dependencies
+        run: npm install
+      - name: Publish
+        run: npm publish --tag ${{ github.event.release.target_commitish }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+  publish_gpr:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '15'
+          registry-url: 'https://npm.pkg.github.com'
+      - name: Install Dependencies
+        run: npm install
+      - name: Publish
+        run: npm publish --tag ${{ github.event.release.target_commitish }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GPR_TOKEN }}
