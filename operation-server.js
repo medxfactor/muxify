@@ -1,5 +1,6 @@
 const http = require('http');
 const FindMyWay = require('find-my-way');
+const { EVENTS } = require('./constants');
 
 
 function OperationServer(eventEmitter) {
@@ -8,7 +9,7 @@ function OperationServer(eventEmitter) {
   });
 
   router.on('PUT', '/add-me', (request, response, params) => {
-    eventEmitter.emit('add-server', {
+    eventEmitter.emit(EVENTS.ADD_SERVER, {
       host: '127.0.0.2',
       port: 8090,
       listeningUrl: '/im-listening',

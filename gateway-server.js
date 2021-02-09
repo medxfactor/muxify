@@ -1,13 +1,15 @@
 const http = require('http');
 const httpProxy = require('http-proxy');
 const HttpProxyRules = require('http-proxy-rules');
+const { EVENTS } = require('./constants');
+
 
 function GatewayServer(eventEmitter) {
   const proxyRules = new HttpProxyRules({
     rules: {},
   });
 
-  eventEmitter.on('add-server', (payload) => {
+  eventEmitter.on(EVENTS, (payload) => {
     proxyRules.rules[payload.listeningUrl] = `http://${payload.host}:${payload.port}`
   });
 
