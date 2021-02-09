@@ -1,6 +1,8 @@
 #!/usr/bin/env node
+const { EventEmitter } = require('events');
 const meow = require('meow');
-const { createServer } = require('../server.js');
+const { GatewayServer } = require('../gateway-server');
+const { OperationServer } = require('../operation-server');
 const pkg = require('../package.json');
 
 const cli = meow(`
@@ -8,19 +10,33 @@ const cli = meow(`
     dev-mux [options]
 
   Options:
-    --port          Preferred port. [default: 3000]
-    --host          Preferred host. [default: '127.0.0.1']
-    --help, -h      Shows this help message and exists
-    --version, -v   Shows dev-mux version (${pkg.version}) and exists
+    --operation-port          Preferred operation server port.  [default: 3001]
+    --operation-host          Preferred operation server host.  [default: '127.0.0.1']
+    --gateway-port            Preferred gateway server port.    [default: 3000]
+    --gateway-host            Preferred gateway server host.    [default: '127.0.0.1']
+    --help, -h                Shows this help message and exists.
+    --version, -v             Shows dev-mux version (${pkg.version}) and exists.
 `, {
   flags: {
-    port: {
+    operationPort: {
+      type: 'number',
+      default: 3001,
+      isRequired: false,
+      isMultiple: false,
+    },
+    operationHost: {
+      type: 'string',
+      default: '127.0.0.1',
+      isRequired: false,
+      isMultiple: false,
+    },
+    gatewayPort: {
       type: 'number',
       default: 3000,
       isRequired: false,
       isMultiple: false,
     },
-    host: {
+    gatewayHost: {
       type: 'string',
       default: '127.0.0.1',
       isRequired: false,
@@ -47,10 +63,22 @@ const cli = meow(`
   pkg,
 });
 
-createServer(
-  cli.flags['host'],
-  cli.flags['port'],
+const eventEmitter = new EventEmitter();
+
+const gatewayServer = GatewayServer(eventEmitter);
+gatewayServer.start(
+  cli.flags['gatewayHost'],
+  cli.flags['gatewayPort'],
   () => {
-    console.info(`dev-mux is listening at http://${cli.flags['host']}:${cli.flags['port']}`);
-  },
+    console.info(`dev-mux gateway server is listening at http://${cli.flags['gatewayHost']}:${cli.flags['gatewayPort']}`);
+  }
+);
+
+const operationServer = OperationServer(eventEmitter);
+operationServer.start(
+  cli.flags['operationHost'],
+  cli.flags['operationPort'],
+  () => {
+    console.info(`dev-mux operation server is listening at http://${cli.flags['operationHost']}:${cli.flags['operationPort']}`);
+  }
 );
