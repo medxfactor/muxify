@@ -9,12 +9,22 @@ function OperationServer(eventEmitter) {
   });
 
   router.on('PUT', '/add-me', (request, response, params) => {
-    eventEmitter.emit(EVENTS.ADD_SERVER, {
-      host: '127.0.0.2',
-      port: 8090,
-      listeningUrl: '/im-listening',
-    })
-    response.end('hello-world')
+    const requestData = [];
+    request.on('data', (chunk) => {
+      requestData.push(chunk);
+    });
+    request.on('end', () => {
+      response.setHeader('Content-Type', 'application/json');
+      try {
+        const payload = JSON.parse(requestData);
+        eventEmitter.emit(EVENTS.ADD_SERVER, payload);
+        response.statusCode = 204;
+        response.end('');
+      } catch (error) {
+        response.statusCode = 500;
+        response.end(`{"message": "error parsing request body"}`);
+      }
+    });
   });
 
   const server = http.createServer(function requestHandler(request, response) {
