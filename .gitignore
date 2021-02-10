@@ -102,3 +102,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Binary generted output will be generated in CI/CD pipelines when publishing package.
+# So, there is no need for it to be tracked by Git
+bin/dev-mux
