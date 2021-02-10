@@ -1,6 +1,11 @@
 name: Publish
 
 on:
+  release:
+    types:
+      - created
+      - published
+      - released
   workflow_run:
     workflows:
       - Release
@@ -12,7 +17,8 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Debug `target_commitish`
-        run: 'echo ${{ github.event.release.target_commitish }} '
+        run: |
+          echo ${{ github.event.release.target_commitish }}
       - name: Checkout Code
         uses: actions/checkout@v2
         with:
@@ -46,4 +52,4 @@ jobs:
       - name: Publish
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GPR_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.3
+
+### CI/CD
+
+* Add on release triggers to *publish* workflow configuration
+
+* Change publish GPR token to virtual environment provided GITHUB_TOKEN
+
 ## 0.2.2
 
 * CI/CD:
