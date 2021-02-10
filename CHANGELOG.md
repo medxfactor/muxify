@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.6
+
+- CI/CD:
+  - Remove GitHub registry URL auth token configuration to `.npmrc`
+
 ## 0.2.5
 
 - CI/CD:
