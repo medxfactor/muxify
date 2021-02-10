@@ -1,10 +1,10 @@
 # dev-mux
 
-Dynamic CI/CD Development Environment Multiplexer
+Dynamic CI/CD Development Multiplexer
 
 ## What is it?
 
-```md
+```txt
 A Dynamic CI/CD Development Multiplexer
      |      |       |            |
      |      |       |            A gateway to running instances
