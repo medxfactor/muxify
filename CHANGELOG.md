@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.2.4
+
+* CI/CD:
+  * Change *publish* workflow *publish GPR* job node version to `12`
+
 ## 0.2.3
 
 * CI/CD:
