@@ -4,6 +4,8 @@
 
 - Rewrite all modules to ES modules `import`/`export` syntax
 
+- Remove unnecessary index.js module. It is replaced by `main.js` module
+
 ## 0.3.1
 
 - Auto CHANGELOG.md `Unreleased` header update
