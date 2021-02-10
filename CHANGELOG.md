@@ -3,6 +3,7 @@
 ## 0.2.5
 
 - CI/CD:
+  - Add GitHub registry URL auth token configuration to `.npmrc`
   - Revert _publish_ workflow _publish GPR_ job node version back to `15`
 
 ## 0.2.4
