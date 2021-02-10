@@ -14,8 +14,8 @@ const cli = meow(`
     --operation-host          Preferred operation server host.  [default: '127.0.0.1']
     --gateway-port            Preferred gateway server port.    [default: 3000]
     --gateway-host            Preferred gateway server host.    [default: '127.0.0.1']
-    --help, -h                Shows this help message and exists.
-    --version, -v             Shows dev-mux version (${pkg.version}) and exists.
+    --help, -h                Prints this help message and exists.
+    --version, -v             Prints dev-mux version (${pkg.version}) and exists.
 `, {
   flags: {
     operationPort: {
