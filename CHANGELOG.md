@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Rewrite all modules to ES modules `import`/`export` syntax
+
 ## 0.3.1
 
 - Auto CHANGELOG.md `Unreleased` header update

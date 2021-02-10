@@ -1,10 +1,10 @@
-const http = require('http');
-const FindMyWay = require('find-my-way');
-const { EVENTS } = require('./constants');
+import http from 'http';
+import FindMyWay from 'find-my-way';
+import { EVENTS } from './constants';
 
 
-function OperationServer(eventEmitter) {
-  const router = FindMyWay({
+export function OperationServer(eventEmitter) {
+  const router = new FindMyWay({
     ignoreTrailingSlash: true
   });
 
@@ -58,8 +58,4 @@ function OperationServer(eventEmitter) {
       server.close();
     }
   }
-}
-
-module.exports = {
-  OperationServer,
 }

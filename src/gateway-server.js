@@ -1,10 +1,10 @@
-const http = require('http');
-const httpProxy = require('http-proxy');
-const HttpProxyRules = require('http-proxy-rules');
-const { EVENTS } = require('./constants');
+import http from 'http';
+import { createProxy } from 'http-proxy';
+import HttpProxyRules from 'http-proxy-rules';
+import { EVENTS } from './constants';
 
 
-function GatewayServer(eventEmitter) {
+export function GatewayServer(eventEmitter) {
   const rulesMap = new Map([]);
 
   const proxyRules = new HttpProxyRules({
@@ -25,7 +25,7 @@ function GatewayServer(eventEmitter) {
     updateProxyRules();
   });
 
-  const proxy = httpProxy.createProxy();
+  const proxy = createProxy();
 
   const server = http.createServer(function requestHandler(request, response) {
     console.dir(proxyRules.rules);
@@ -49,7 +49,3 @@ function GatewayServer(eventEmitter) {
     }
   }
 }
-
-module.exports = {
-  GatewayServer,
-};
