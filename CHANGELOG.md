@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.3.0
+
+- Breaking Changes:
+
+  - `PUT /add-me` route URL changed to `PUT /attach`. It accepts the same payload as previous, only route name changed due to name consistency with newly added `/detach` route URL.
+
+- Features:
+
+  - Add detach server URL which can be used by servers providing the url they were listening to, to detach them from proxy table. An example of such a request for a server that was listening to requests wit base URL `/im-listening` to operation server listening at `http://localhost:3001`, will be like following:
+
+    ```sh
+    curl \
+        --request PUT \
+        --url http://localhost:3001/add-me \
+        --header 'Content-Type: application/json' \
+        --data '{
+            "listeningUrl": "/im-listening"
+        }'
+    ```
+
+- Bug Fixes:
+
+  - Fix bug adding proxy rule on all events emitted by event emitter in gateway server.
+
 ## 0.2.7
 
 - CI/CD:
