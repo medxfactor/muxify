@@ -27,6 +27,25 @@ function OperationServer(eventEmitter) {
     });
   });
 
+  router.on('PUT', '/detach', (request, response, params) => {
+    const requestData = [];
+    request.on('data', (chunk) => {
+      requestData.push(chunk);
+    });
+    request.on('end', () => {
+      response.setHeader('Content-Type', 'application/json');
+      try {
+        const payload = JSON.parse(requestData);
+        eventEmitter.emit(EVENTS.DETACH_SERVER, payload);
+        response.statusCode = 204;
+        response.end('');
+      } catch (error) {
+        response.statusCode = 500;
+        response.end(`{"message": "error parsing request body"}`);
+      }
+    });
+  });
+
   const server = http.createServer(function requestHandler(request, response) {
     router.lookup(request, response);
   });
