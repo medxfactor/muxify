@@ -8,7 +8,7 @@ function OperationServer(eventEmitter) {
     ignoreTrailingSlash: true
   });
 
-  router.on('PUT', '/add-me', (request, response, params) => {
+  router.on('PUT', '/attach', (request, response, params) => {
     const requestData = [];
     request.on('data', (chunk) => {
       requestData.push(chunk);
