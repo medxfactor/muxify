@@ -28,7 +28,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install Dependencies
         run: npm install
-      - name: Publish
+      - name: Publish to NPM
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -40,11 +40,11 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '15'
           registry-url: 'https://npm.pkg.github.com'
       - name: Install Dependencies
         run: npm install
-      - name: Publish
+      - name: Publish to GPR
         run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_GPR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
