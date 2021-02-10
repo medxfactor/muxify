@@ -3,7 +3,7 @@
 ## 0.2.4
 
 * CI/CD:
-  * Change *publish* workflow *publish GPR* job node version to `12`
+  * Change *publish* workflow *publish GPR* job node version to `14`
 
 ## 0.2.3
 
