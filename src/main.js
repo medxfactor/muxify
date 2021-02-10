@@ -5,7 +5,6 @@ import minimist from 'minimist';
 
 
 const help = `
-
   Dynamic CI/CD Development Multiplexer
 
   Usage:
@@ -18,7 +17,6 @@ const help = `
     --gateway-host            Preferred gateway server host.    [default: '127.0.0.1']
     --help, -h                Prints this help message and exists.
     --version, -v             Prints dev-mux version (process.env.VERSION) and exists.
-
 `;
 
 const argv = minimist(
