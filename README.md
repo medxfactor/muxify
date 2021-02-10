@@ -21,10 +21,11 @@ One solution is to have a gateway which distributes requests it receives to appl
 
 Personally, I want to have the following architecture:
 
-<!-- TODO: Add diagram image -->
-<!-- ![diagram to scenario dev-mux works best]() -->
+![diagram that represent an example scenario where dev-mux works best](./diagram.png)
 
-So, if you have the same problem, dev-mux might help you 😃
+*[Credit: <https://app.diagrams.net/>]*
+
+So, if you have the same problem, dev-mux might help you! 😃
 
 ### Usage
 
