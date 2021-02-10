@@ -1,26 +1,25 @@
 name: Publish
 
 on:
-  release:
-    types:
-      - created
-      - published
-      - released
   workflow_run:
     workflows:
       - Release
     types:
       - completed
-      - requested
 
 jobs:
   publish_npm:
     runs-on: ubuntu-20.04
     steps:
+      - name: Debug `target_commitish`
+        run: 'echo ${{ github.event.release.target_commitish }} '
       - name: Checkout Code
         uses: actions/checkout@v2
         with:
           ref: ${{ github.event.release.target_commitish }}
+      - name: Set Git Default Branch
+        run: |
+          git config --global init.defaultBranch main
       - name: Setup Node
         uses: actions/setup-node@v2
         with:
@@ -29,7 +28,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Publish
-        run: npm publish --tag ${{ github.event.release.target_commitish }}
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   publish_gpr:
@@ -45,6 +44,6 @@ jobs:
       - name: Install Dependencies
         run: npm install
       - name: Publish
-        run: npm publish --tag ${{ github.event.release.target_commitish }}
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GPR_TOKEN }}

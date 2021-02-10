@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.2
+
+* CI/CD:
+
+    Set Git default branch to `main` in *publish* workflow.
+
 ## 0.2.1
 
 * CI/CD:
