@@ -1,5 +1,17 @@
 # Changelog
 
+## Unreleased
+
+- Update package.json description
+
+- Update README.md
+
+  - Add documentation on usage and the idea behind dev-mux
+
+- Add README.md auto help message update
+
+  - Create `readme-template.md` which is a pre-processed version of README.md
+
 ## 0.3.0
 
 - Breaking Changes:

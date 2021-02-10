@@ -1,0 +1,26 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+const childProcess = require('child_process');
+
+const helpMessage = childProcess
+  .execSync(
+    './bin/dev-mux --help',
+    { encoding: 'utf-8'},
+  )
+  .toString();
+
+const helpMessageReplacedREADME = fs
+  .readFileSync(
+    path.resolve(__dirname, './readme-template.md'),
+    { encoding: 'utf-8' }
+  )
+  .toString()
+  .replace('%HELP_MESSAGE%', helpMessage);
+
+fs.writeFileSync(
+  path.join(__dirname, '../README.md'),
+  helpMessageReplacedREADME,
+  { encoding: 'utf-8' }
+);
