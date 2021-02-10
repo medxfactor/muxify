@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Auto CHANGELOG.md `Unreleased` header update
+
+  - Add CHANGELOG.md update functionality to post-version script
+
 - Update package.json description
 
 - Update README.md

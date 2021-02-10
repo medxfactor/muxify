@@ -24,3 +24,17 @@ fs.writeFileSync(
   helpMessageReplacedREADME,
   { encoding: 'utf-8' }
 );
+
+const unreleasedReplacedCHANGELOG = fs
+  .readFileSync(
+    path.resolve(__dirname, '../CHANGELOG.md'),
+    { encoding: 'utf-8' }
+  )
+  .toString()
+  .replace('## Unreleased', `## ${process.env.npm_new_version}`);
+
+fs.writeFileSync(
+  path.join(__dirname, '../CHANGELOG.md'),
+  unreleasedReplacedCHANGELOG,
+  { encoding: 'utf-8' }
+);
