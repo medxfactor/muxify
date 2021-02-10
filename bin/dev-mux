@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 const { EventEmitter } = require('events');
 const meow = require('meow');
-const { GatewayServer } = require('../gateway-server');
-const { OperationServer } = require('../operation-server');
+const { GatewayServer } = require('../src/gateway-server');
+const { OperationServer } = require('../src/operation-server');
 const pkg = require('../package.json');
 
 const cli = meow(`
