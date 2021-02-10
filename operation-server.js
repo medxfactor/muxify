@@ -8,7 +8,7 @@ function OperationServer(eventEmitter) {
     ignoreTrailingSlash: true
   });
 
-  router.on('PUT', '/add-me', (request, response, params) => {
+  router.on('PUT', '/attach', (request, response, params) => {
     const requestData = [];
     request.on('data', (chunk) => {
       requestData.push(chunk);
@@ -17,7 +17,26 @@ function OperationServer(eventEmitter) {
       response.setHeader('Content-Type', 'application/json');
       try {
         const payload = JSON.parse(requestData);
-        eventEmitter.emit(EVENTS.ADD_SERVER, payload);
+        eventEmitter.emit(EVENTS.ATTACH_SERVER, payload);
+        response.statusCode = 204;
+        response.end('');
+      } catch (error) {
+        response.statusCode = 500;
+        response.end(`{"message": "error parsing request body"}`);
+      }
+    });
+  });
+
+  router.on('PUT', '/detach', (request, response, params) => {
+    const requestData = [];
+    request.on('data', (chunk) => {
+      requestData.push(chunk);
+    });
+    request.on('end', () => {
+      response.setHeader('Content-Type', 'application/json');
+      try {
+        const payload = JSON.parse(requestData);
+        eventEmitter.emit(EVENTS.DETACH_SERVER, payload);
         response.statusCode = 204;
         response.end('');
       } catch (error) {

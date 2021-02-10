@@ -1,5 +1,6 @@
 const EVENTS = {
-  ADD_SERVER: 'ADD_SERVER',
+  ATTACH_SERVER: 'ATTACH_SERVER',
+  DETACH_SERVER: 'DETACH_SERVER',
 };
 
 module.exports = {

@@ -5,12 +5,24 @@ const { EVENTS } = require('./constants');
 
 
 function GatewayServer(eventEmitter) {
+  const rulesMap = new Map([]);
+
   const proxyRules = new HttpProxyRules({
     rules: {},
   });
 
-  eventEmitter.on(EVENTS, (payload) => {
-    proxyRules.rules[payload.listeningUrl] = `http://${payload.host}:${payload.port}`
+  function updateProxyRules() {
+    proxyRules.rules = Object.fromEntries(rulesMap.entries());
+  }
+
+  eventEmitter.on(EVENTS.ATTACH_SERVER, (payload) => {
+    rulesMap.set(payload.listeningUrl, `http://${payload.host}:${payload.port}`);
+    updateProxyRules();
+  });
+
+  eventEmitter.on(EVENTS.DETACH_SERVER, (payload) => {
+    rulesMap.delete(payload.listeningUrl);
+    updateProxyRules();
   });
 
   const proxy = httpProxy.createProxy();
