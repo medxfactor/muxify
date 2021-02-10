@@ -42,7 +42,8 @@ jobs:
         with:
           node-version: '15'
           registry-url: 'https://npm.pkg.github.com'
-          scope: '@xeptore'
+      - name: Upgrade NPM
+        run: npm install --global npm@latest
       - name: Install Dependencies
         run: npm install
       - name: Publish to GPR

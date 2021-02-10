@@ -1,8 +1,18 @@
 # Changelog
 
+## 0.2.7
+
+- CI/CD:
+
+  - Remove `scope` parameter from _publish GPR_ job
+  - Add _Upgrade NPM_ step to _publish GPR_ job in order to fix issue in authentication.
+
+    Previous versions of npm had bug reading `_auth` key from `.npmrc` (which is set by [actions/setup-node](https://github.com/actions/setup-node)), as mentioned in [1](https://github.com/actions/setup-node/issues/213#issuecomment-752095615), and [2](https://github.com/npm/cli/issues/2300).
+
 ## 0.2.6
 
 - CI/CD:
+
   - Remove GitHub registry URL auth token configuration to `.npmrc`
   - Add `scope` parameter to _publish GPR_ job
 
