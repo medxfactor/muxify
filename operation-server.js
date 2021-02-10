@@ -17,7 +17,7 @@ function OperationServer(eventEmitter) {
       response.setHeader('Content-Type', 'application/json');
       try {
         const payload = JSON.parse(requestData);
-        eventEmitter.emit(EVENTS.ADD_SERVER, payload);
+        eventEmitter.emit(EVENTS.ATTACH_SERVER, payload);
         response.statusCode = 204;
         response.end('');
       } catch (error) {

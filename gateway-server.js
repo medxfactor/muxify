@@ -15,7 +15,7 @@ function GatewayServer(eventEmitter) {
     proxyRules.rules = Object.fromEntries(rulesMap.entries());
   }
 
-  eventEmitter.on(EVENTS.ADD_SERVER, (payload) => {
+  eventEmitter.on(EVENTS.ATTACH_SERVER, (payload) => {
     rulesMap.set(payload.listeningUrl, `http://${payload.host}:${payload.port}`);
     updateProxyRules();
   });
