@@ -6,6 +6,8 @@
 
 - Remove unnecessary index.js module. It is replaced by `main.js` module
 
+- Configure rollup to bundle the application
+
 ## 0.3.1
 
 - Auto CHANGELOG.md `Unreleased` header update
