@@ -44,21 +44,7 @@ You can change each server host and port by providing [options](#options) to `de
 Executing `dev-mux` with `--help`, will print:
 
 ```sh
-
-  Dynamic CI/CD Development Multiplexer
-
-  Usage:
-    dev-mux [options]
-
-  Options:
-    --operation-port          Preferred operation server port.  [default: 3001]
-    --operation-host          Preferred operation server host.  [default: '127.0.0.1']
-    --gateway-port            Preferred gateway server port.    [default: 3000]
-    --gateway-host            Preferred gateway server host.    [default: '127.0.0.1']
-    --help, -h                Prints this help message and exists.
-    --version, -v             Prints dev-mux version (0.3.1) and exists.
-
-
+%HELP_MESSAGE%
 ```
 
 ### Operation Server Endpoints
