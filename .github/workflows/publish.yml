@@ -42,9 +42,10 @@ jobs:
         with:
           node-version: '15'
           registry-url: 'https://npm.pkg.github.com'
+          scope: '@xeptore'
       - name: Install Dependencies
         run: npm install
       - name: Publish to GPR
         run: npm publish
         env:
-          NPM_GPR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

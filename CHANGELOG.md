@@ -4,6 +4,7 @@
 
 - CI/CD:
   - Remove GitHub registry URL auth token configuration to `.npmrc`
+  - Add `scope` parameter to _publish GPR_ job
 
 ## 0.2.5
 
