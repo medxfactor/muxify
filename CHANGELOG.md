@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.4.0
 
 - Rewrite all modules to ES modules `import`/`export` syntax
 - Remove unnecessary index.js module. It is replaced by `main.js` module
