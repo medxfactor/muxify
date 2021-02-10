@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.3.1
 
 - Auto CHANGELOG.md `Unreleased` header update
 
