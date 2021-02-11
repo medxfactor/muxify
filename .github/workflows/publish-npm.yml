@@ -6,9 +6,6 @@ on:
       - Release
     types:
       - completed
-  push:
-    branches:
-      - xeptore/issue17
 
 jobs:
   publish:
