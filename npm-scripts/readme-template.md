@@ -1,6 +1,6 @@
 # muxify
 
-Dynamic Multiplexer
+%DESCRIPTION_PLACEHOLDER%
 
 ## What is it?
 

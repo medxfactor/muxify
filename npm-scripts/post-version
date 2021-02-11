@@ -2,6 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 const childProcess = require('child_process');
+const pkg = require('../package.json');
 
 const helpMessage = childProcess
   .execSync(
@@ -16,7 +17,8 @@ const helpMessageReplacedREADME = fs
     { encoding: 'utf-8' }
   )
   .toString()
-  .replace('%HELP_MESSAGE%', helpMessage);
+  .replace('%HELP_MESSAGE%', helpMessage)
+  .replace('%DESCRIPTION_PLACEHOLDER%', pkg.description);
 
 fs.writeFileSync(
   path.join(__dirname, '../README.md'),
