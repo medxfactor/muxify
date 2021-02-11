@@ -4,6 +4,8 @@
 
 - Rename all `dev-mux` occurrences with `muxify`
 - Add prepublish workflows for `npm` and `GPR`
+- Add prerelease workflow
+
 ## 0.4.2
 
 - CI/CD:
