@@ -5,7 +5,7 @@ import minimist from 'minimist';
 
 
 const help = `
-  Dynamic CI/CD Development Multiplexer
+  process.env.DESCRIPTION
 
   Usage:
     muxify [options]

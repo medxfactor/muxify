@@ -6,6 +6,7 @@ import replace from '@rollup/plugin-replace';
 import strip from '@rollup/plugin-strip';
 import json from '@rollup/plugin-json';
 import del from 'rollup-plugin-delete';
+import pkg from './package.json';
 
 
 function shebang() {
@@ -38,6 +39,7 @@ export default {
     }),
     replace({
       'process.env.VERSION': process.env.npm_package_version,
+      'process.env.DESCRIPTION': pkg.description,
     }),
     terser({
       format: {
