@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Fix bug missing binary bundled app to published packages
+
 ## 0.4.0
 
 - Rewrite all modules to ES modules `import`/`export` syntax
