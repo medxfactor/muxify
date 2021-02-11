@@ -6,6 +6,9 @@ on:
       - Release
     types:
       - completed
+  push:
+    branches:
+      - xeptore/issue20
 
 jobs:
   publish_npm:
@@ -26,8 +29,14 @@ jobs:
         with:
           node-version: '15'
           registry-url: 'https://registry.npmjs.org'
+      - name: Upgrade NPM
+        run: npm install --global npm
+      - name: Install PNPM
+        run: npm install --global pnpm
       - name: Install Dependencies
-        run: npm install
+        run: pnpm install
+      - name: Build Package
+        run: pnpm run build
       - name: Publish to NPM
         run: npm publish
         env:
@@ -43,9 +52,13 @@ jobs:
           node-version: '15'
           registry-url: 'https://npm.pkg.github.com'
       - name: Upgrade NPM
-        run: npm install --global npm@latest
+        run: npm install --global npm
+      - name: Install PNPM
+        run: npm install --global pnpm
       - name: Install Dependencies
-        run: npm install
+        run: pnpm install
+      - name: Build Package
+        run: pnpm run build
       - name: Publish to GPR
         run: npm publish
         env:
