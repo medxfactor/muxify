@@ -6,6 +6,7 @@
 - Add prepublish workflows for `npm` and `GPR`
 - Add prerelease workflow
 - Read CLI help message from `package.json` and set it at compile-time
+- Update `package.json` `description` field
 
 ## 0.4.2
 
