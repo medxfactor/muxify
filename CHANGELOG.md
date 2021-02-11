@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.0.0-0
 
 - Rename all `dev-mux` occurrences with `muxify`
 - Add prepublish workflows for `npm` and `GPR`

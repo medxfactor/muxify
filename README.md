@@ -1,15 +1,13 @@
 # muxify
 
-Dynamic CI/CD Development Multiplexer
+Dynamic Multiplexer
 
 ## What is it?
 
 ```txt
-A Dynamic CI/CD Development Multiplexer
-     |      |       |            |
-     |      |       |            A gateway to running instances
-     |      |       It's not fast, and should not be used in production
-     |      I personally use it in CI/CD environments for multiple instances
+A Dynamic Multiplexer
+     |         |
+     |         A gateway to running instances of your server applications
      No need to reloads or restarts. Changes will be applied on the next request
 ```
 
