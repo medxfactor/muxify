@@ -1,6 +1,6 @@
 {
   "name": "@medxfactor/dev-mux",
-  "version": "0.4.0",
+  "version": "0.4.1-0",
   "description": "Dynamic CI/CD Development Multiplexer",
   "bin": {
     "dev-mux": "bin/dev-mux"
