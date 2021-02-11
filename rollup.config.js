@@ -23,7 +23,7 @@ function shebang() {
 export default {
   input: 'src/main.js',
   output: {
-    file: './bin/dev-mux',
+    file: './bin/muxify',
     format: 'cjs',
   },
   plugins: [

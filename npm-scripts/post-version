@@ -1,12 +1,11 @@
 #!/usr/bin/env node
-
 const fs = require('fs');
 const path = require('path');
 const childProcess = require('child_process');
 
 const helpMessage = childProcess
   .execSync(
-    './bin/dev-mux --help',
+    './bin/muxify --help',
     { encoding: 'utf-8'},
   )
   .toString();

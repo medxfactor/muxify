@@ -8,7 +8,7 @@ const help = `
   Dynamic CI/CD Development Multiplexer
 
   Usage:
-    dev-mux [options]
+    muxify [options]
 
   Options:
     --operation-port          Preferred operation server port.  [default: 3001]
@@ -16,7 +16,7 @@ const help = `
     --gateway-port            Preferred gateway server port.    [default: 3000]
     --gateway-host            Preferred gateway server host.    [default: '127.0.0.1']
     --help, -h                Prints this help message and exists.
-    --version, -v             Prints dev-mux version (process.env.VERSION) and exists.
+    --version, -v             Prints muxify version (process.env.VERSION) and exists.
 `;
 
 const argv = minimist(
@@ -71,7 +71,7 @@ gatewayServer.start(
   flags.gatewayHost,
   flags.gatewayPort,
   () => {
-    console.info(`dev-mux gateway server is listening at http://${flags.gatewayHost}:${flags.gatewayPort}`);
+    console.info(`muxify gateway server is listening at http://${flags.gatewayHost}:${flags.gatewayPort}`);
   }
 );
 
@@ -80,6 +80,6 @@ operationServer.start(
   flags.operationHost,
   flags.operationPort,
   () => {
-    console.info(`dev-mux operation server is listening at http://${flags.operationHost}:${flags.operationPort}`);
+    console.info(`muxify operation server is listening at http://${flags.operationHost}:${flags.operationPort}`);
   }
 );

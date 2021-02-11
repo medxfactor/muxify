@@ -1,9 +1,9 @@
 {
-  "name": "@medxfactor/dev-mux",
+  "name": "muxify",
   "version": "0.4.2",
   "description": "Dynamic CI/CD Development Multiplexer",
   "bin": {
-    "dev-mux": "bin/dev-mux"
+    "muxify": "bin/muxify"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,7 +12,7 @@
     "update-doc-versions": "./npm-scripts/post-version"
   },
   "files": [
-    "bin/dev-mux"
+    "bin/muxify"
   ],
   "keywords": [
     "ci",
@@ -25,14 +25,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/medxfactor/dev-mux.git"
+    "url": "git+https://github.com/medxfactor/muxify.git"
   },
   "author": "xeptore <xeptore@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/medxfactor/dev-mux/issues"
+    "url": "https://github.com/medxfactor/muxify/issues"
   },
-  "homepage": "https://github.com/medxfactor/dev-mux#readme",
+  "homepage": "https://github.com/medxfactor/muxify#readme",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.1.0",
     "@rollup/plugin-json": "^4.1.0",
