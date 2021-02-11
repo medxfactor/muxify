@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.2
+
+- CI/CD:
+
+  Separate publish workflows for more transparency and clearer failures
+
 ## 0.4.1
 
 - Fix bug missing binary bundled app to published packages
