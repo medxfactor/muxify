@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.0.0-2
 
 - Remove publish GitHub Package Registry workflows
 

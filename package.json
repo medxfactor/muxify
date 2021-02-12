@@ -1,6 +1,6 @@
 {
   "name": "muxify",
-  "version": "1.0.0-1",
+  "version": "1.0.0-2",
   "description": "Dynamic Multiplexer",
   "bin": {
     "muxify": "bin/muxify"
