@@ -58,7 +58,7 @@ Executing `muxify` with `--help`, will print:
     --gateway-port            Preferred gateway server port.    [default: 3000]
     --gateway-host            Preferred gateway server host.    [default: '127.0.0.1']
     --help, -h                Prints this help message and exists.
-    --version, -v             Prints muxify version (1.0.0-2) and exists.
+    --version, -v             Prints muxify version (1.0.0-3) and exists.
 
 
 ```
