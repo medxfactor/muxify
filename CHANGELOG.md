@@ -6,6 +6,10 @@
 
   As I realized, YOU CANNOT PUBLISH A PACKAGE BOTH TO GPR AND NPM. Because, GPR is interested in `package.json` `name` field. and tries to match that with the repository, whether owned by you, or a organization (based on your access token). So, the only way you can publish a package both to GPR and NPM is to use a name your package which is the same for NPM and GPR. For example, you should set `"name": "@scope/package-name"` in your `package.json`, where you both have access to _`scope`_ organization on NPM and GitHub (or own the user names, of course).
 
+- Updated outdated dependencies
+
+  - Bump `Rollup` to `2.39.0`.
+
 ## 1.0.0-0
 
 - Rename all `dev-mux` occurrences with `muxify`
