@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Fix bug in pre-release workflow trigger
+
+  There was a bug in pre-release workflow trigger regular expression pattern which triggers the workflow only for tags starting with `v1` or `v2`, not `v3` or `v4`.
+
 ## 1.0.0-2
 
 - Remove publish GitHub Package Registry workflows
