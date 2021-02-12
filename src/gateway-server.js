@@ -28,7 +28,6 @@ export function GatewayServer(eventEmitter) {
   const proxy = createProxy();
 
   const server = http.createServer(function requestHandler(request, response) {
-    console.dir(proxyRules.rules);
     const target = proxyRules.match(request);
     if (target ?? false) {
       return proxy.web(request, response, {

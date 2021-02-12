@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Remove unnecessary logging
+
 ## 1.0.0-3
 
 - Fix bug in pre-release workflow trigger
